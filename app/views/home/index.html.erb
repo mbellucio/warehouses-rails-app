@@ -1,1 +1,12 @@
 <h1>Warehouses & Inventory</h1>
+
+<% @warehouses.each do |warehouse| %>
+  <p><%= warehouse.name %></p>
+  <p>Código: <%= warehouse.code %></p>
+  <p>Cidade: <%= warehouse.city %></p>
+  <p><%= warehouse.area%> m2</p>
+<% end %>
+
+<% if @warehouses.empty? %>
+  <p>There are no registered warehouses</p>
+<% end %>
