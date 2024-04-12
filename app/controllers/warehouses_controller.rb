@@ -27,4 +27,17 @@ class WarehousesController < ApplicationController
         :description
       )
   end
+
+  def edit
+    @warehouse = Warehouse.find(params[:id])
+  end
+
+  def update
+    @warehouse = Warehouse.find(params[:id])
+    if @warehouse.update(warehouse_params)
+      return redirect_to warehouse_path(@warehouse.id), notice: "Warehouse sucessfully edited!"
+    end
+    flash.now[:notice] = "Warehouse not edited."
+    render 'edit'
+  end
 end

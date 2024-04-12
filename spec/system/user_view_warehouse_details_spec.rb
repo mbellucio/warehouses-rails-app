@@ -15,11 +15,11 @@ describe "User sees warehouse details and" do
 
     #act
     visit(root_path)
-    click_on("São Paulo Airport")
+    click_on("São Paulo")
 
     #assert
-    expect(page).to have_content("GRU Warehouse")
-    expect(page).to have_content("São Paulo Airport")
+    expect(page).to have_content("GRU")
+    expect(page).to have_content("São Paulo")
     expect(page).to have_content("City: Guarulhos")
     expect(page).to have_content("Area: 100000 m2")
     expect(page).to have_content("Adress: Avenida do Aeroporto, 1000 zip: 15000-000")
@@ -39,7 +39,7 @@ describe "User sees warehouse details and" do
       )
     #act
     visit(root_path)
-    click_on("São Paulo Airport")
+    click_on("São Paulo")
     click_on("Back")
     #assert
     expect(current_path).to eq(root_path)
