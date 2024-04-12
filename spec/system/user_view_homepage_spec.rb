@@ -13,8 +13,10 @@ describe "User acess home page and" do
 
   it "sees all registered warehouses" do
     #arrange
-    Warehouse.create(name: "Rio", code: "SDU", city: "Rio de Janeiro", area: 60_000)
-    Warehouse.create(name: "Maceio", code: "MCZ", city: "Maceio", area: 50_000)
+    Warehouse.create(name: "Rio", code: "SDU", city: "Rio de Janeiro",
+    area: 60_000, adress: "Test 1000", zip: "1000-00", description: "test")
+    Warehouse.create(name: "Maceio", code: "MCZ", city: "Maceio",
+    area: 50_000, adress: "Test 1000", zip: "1000-00", description: "test")
 
     #act
     visit("/")

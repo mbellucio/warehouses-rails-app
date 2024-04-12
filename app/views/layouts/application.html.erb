@@ -10,6 +10,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header style="display: flex; justify-content: center">
+      <h1>Warehouses & Inventory</h1>
+    </header>
+    <div class="center"><%= notice %></div>
+    <main id="main">
+      <%= yield %>
+    </main>
   </body>
 </html>

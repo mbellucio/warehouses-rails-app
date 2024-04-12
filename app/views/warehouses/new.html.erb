@@ -1,0 +1,53 @@
+<div>
+  <h1>New Warehouse</h1>
+
+  <% if @warehouse.errors.any? %>
+    <p>Verify the errors bellow:</p>
+    <ul>
+      <% @warehouse.errors.full_messages.each do |err| %>
+        <li><%= err %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <%= form_with(model: @warehouse) do |f| %>
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+
+    <div>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
+
+    <div>
+      <%= f.label :code %>
+      <%= f.text_field :code %>
+    </div>
+
+    <div>
+      <%= f.label :adress %>
+      <%= f.text_field :adress %>
+    </div>
+
+    <div>
+      <%= f.label :city %>
+      <%= f.text_field :city %>
+    </div>
+
+    <div>
+      <%= f.label :zip %>
+      <%= f.text_field :zip %>
+    </div>
+
+    <div>
+      <%= f.label :area %>
+      <%= f.number_field :area %>
+    </div>
+
+    <div>
+      <%= f.submit "Save" %>
+    </div>
+  <% end %>
+</div> 

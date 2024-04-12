@@ -22,7 +22,7 @@ describe "User sees warehouse details and" do
     expect(page).to have_content("São Paulo Airport")
     expect(page).to have_content("City: Guarulhos")
     expect(page).to have_content("Area: 100000 m2")
-    expect(page).to have_content("Adress: Avenida do Aeroporto, 1000 ZIP: 15000-000")
+    expect(page).to have_content("Adress: Avenida do Aeroporto, 1000 zip: 15000-000")
     expect(page).to have_content("Warehouse for international cargo usage")
   end
 

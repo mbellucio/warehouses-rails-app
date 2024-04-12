@@ -1,13 +1,27 @@
-<h1>Warehouses & Inventory</h1>
+<section id="warehouses">
+  <div><%= I18n.translate("hello") %></div>
+  <div><%= I18n.localize(Date.today) %></div>
+  <div class="center">
+    <%= link_to 'Register Warehouse', new_warehouse_path%>
+  </div>
 
-<% @warehouses.each do |warehouse| %>
-  <%= link_to "#{warehouse.name} Airport", warehouse_path(warehouse.id) %>
-  <p>Código: <%= warehouse.code %></p>
-  <p>Cidade: <%= warehouse.city %></p>
-  <p><%= warehouse.area%> m2</p>
-<% end %>
+  <% @warehouses.each do |warehouse| %>
+    <div id="warehouse">
+      <div>
+        <h3><%= link_to "#{warehouse.name} Airport", warehouse_path(warehouse.id)%></h3>
+        <dl>
+          <dt>Código:</dt>
+          <dd><%= warehouse.code%></dd>
+          <dt>Cidade:</dt>
+          <dd><%= warehouse.city %></dd>
+          <dt>Area:</dt>
+          <dd><%= warehouse.area%> m2</dd>
+        </dl>
+      </div>
+    </div>
+  <% end %>
 
-<% if @warehouses.empty? %>
-  <p>There are no registered warehouses</p>
-<% end %>
-
+  <% if @warehouses.empty? %>
+    <p>There are no registered warehouses</p>
+  <% end %>
+</section>
