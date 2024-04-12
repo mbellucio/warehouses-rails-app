@@ -9,5 +9,6 @@
   <div>
 
   <%= link_to 'Edit', edit_warehouse_path(@warehouse.id) %>
+  <%= button_to 'Delete', warehouse_path(@warehouse.id), method: :delete%>
   <%= link_to 'Back', root_path %>
 </div>

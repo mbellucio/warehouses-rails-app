@@ -1,7 +1,7 @@
 class WarehousesController < ApplicationController
-  def show
-    @warehouse = Warehouse.find(params[:id])
-  end
+  before_action :get_warehouse_by_id, only: [:edit, :update, :show, :destroy]
+
+  def show; end
 
   def new
     @warehouse = Warehouse.new
@@ -16,28 +16,35 @@ class WarehousesController < ApplicationController
     render 'new'
   end
 
-  def warehouse_params
-      params.require(:warehouse).permit(
-        :name,
-        :code,
-        :city,
-        :area,
-        :adress,
-        :zip,
-        :description
-      )
-  end
-
-  def edit
-    @warehouse = Warehouse.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @warehouse = Warehouse.find(params[:id])
     if @warehouse.update(warehouse_params)
       return redirect_to warehouse_path(@warehouse.id), notice: "Warehouse sucessfully edited!"
     end
     flash.now[:notice] = "Warehouse not edited."
     render 'edit'
+  end
+
+  def destroy
+    @warehouse.destroy
+    redirect_to root_path, notice: "Warehouse sucessfully removed!"
+  end
+
+  private
+  def warehouse_params
+    params.require(:warehouse).permit(
+      :name,
+      :code,
+      :city,
+      :area,
+      :adress,
+      :zip,
+      :description
+    )
+  end
+
+  def get_warehouse_by_id
+    @warehouse = Warehouse.find(params[:id])
   end
 end
