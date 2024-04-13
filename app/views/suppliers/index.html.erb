@@ -1,0 +1,30 @@
+<div>
+  
+  <% if @suppliers.any?%>
+    <table>
+      <tr>
+        <th>Corporate</th>
+        <th>Brand</th>
+        <th>Registration Number</th>
+        <th>Adress</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Email</th>
+      </tr>
+      <% @suppliers.each do |supplier| %>
+        <tr>
+          <td><%=supplier.corporate_name %></td>
+          <td><%=supplier.brand_name %></td>
+          <td><%=supplier.registration_number %></td>
+          <td><%=supplier.adress %></td>
+          <td><%=supplier.city %></td>
+          <td><%=supplier.state %></td>
+          <td><%=supplier.email %></td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <p>There are no registered Suppliers</p>
+  <% end %>
+  
+</div>

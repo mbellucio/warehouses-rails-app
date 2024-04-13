@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe "User acess home page and" do
+describe "User access home page and" do
   it "sees app name" do
     #arrange
 
