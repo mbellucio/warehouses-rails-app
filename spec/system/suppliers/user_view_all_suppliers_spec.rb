@@ -35,18 +35,10 @@ describe "User access suppliers page" do
 
     expect(page).to have_content("Flamengo")
     expect(page).to have_content("CRF")
-    expect(page).to have_content("112345")
-    expect(page).to have_content("Gávea 40")
-    expect(page).to have_content("Rio de Janeiro")
     expect(page).to have_content("RJ")
-    expect(page).to have_content("flamengo@gmail.com")
 
     expect(page).to have_content("São Paulo")
     expect(page).to have_content("SPFC")
-    expect(page).to have_content("112345")
-    expect(page).to have_content("Morumbi 10")
-    expect(page).to have_content("São Paulo")
     expect(page).to have_content("SP")
-    expect(page).to have_content("saopaulo@gmail.com")
   end
 end

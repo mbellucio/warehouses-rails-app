@@ -1,0 +1,16 @@
+<div>
+  <div>
+    <h1><%= @supplier.corporate_name %></h1>
+    <h3><%= @supplier.brand_name %></h3>
+  </div>
+  <div>
+    <p>Registration number: <%= @supplier.registration_number %></p>
+    <p>Adress: <%= @supplier.adress %></p>
+    <p>City: <%= @supplier.city %></p>
+    <p>State: <%= @supplier.state %></p>
+    <p>Email: <%= @supplier.email %></p>
+  </div>
+  <div>
+    <%= button_to "Back", root_path, method: :get %>
+  </div>
+</div>

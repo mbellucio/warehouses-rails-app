@@ -5,21 +5,13 @@
       <tr>
         <th>Corporate</th>
         <th>Brand</th>
-        <th>Registration Number</th>
-        <th>Adress</th>
-        <th>City</th>
-        <th>State</th>
-        <th>Email</th>
+        <th>State</th>    
       </tr>
       <% @suppliers.each do |supplier| %>
         <tr>
-          <td><%=supplier.corporate_name %></td>
+          <td><%= link_to supplier.corporate_name, supplier %></td>
           <td><%=supplier.brand_name %></td>
-          <td><%=supplier.registration_number %></td>
-          <td><%=supplier.adress %></td>
-          <td><%=supplier.city %></td>
           <td><%=supplier.state %></td>
-          <td><%=supplier.email %></td>
         </tr>
       <% end %>
     </table>
@@ -28,3 +20,4 @@
   <% end %>
   
 </div>
+
