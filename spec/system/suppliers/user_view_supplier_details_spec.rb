@@ -22,7 +22,7 @@ describe "User access a supplier details page" do
     expect(page).to have_content("Email: flamengo@gmail.com")
   end
 
-  it "and returns to home page" do
+  it "and returns to suppliers page" do
     #arrange
     supplier = Supplier.create!(corporate_name: "Flamengo", brand_name: "CRF",
     registration_number: "112345", adress: "Gávea 40", city: "Rio de Janeiro",
@@ -33,6 +33,6 @@ describe "User access a supplier details page" do
     click_on "Flamengo"
     click_on "Back"
     #assert
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(suppliers_path)
   end
 end

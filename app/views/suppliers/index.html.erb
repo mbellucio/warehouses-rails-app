@@ -1,23 +1,31 @@
 <div>
   
-  <% if @suppliers.any?%>
-    <table>
-      <tr>
-        <th>Corporate</th>
-        <th>Brand</th>
-        <th>State</th>    
-      </tr>
-      <% @suppliers.each do |supplier| %>
+  <div>
+    <%= link_to 'Register supplier', new_supplier_path %>
+  </div>
+  <div>
+    <% if @suppliers.any?%>
+      <table>
         <tr>
-          <td><%= link_to supplier.corporate_name, supplier %></td>
-          <td><%=supplier.brand_name %></td>
-          <td><%=supplier.state %></td>
+          <th>Corporate</th>
+          <th>Brand</th>
+          <th>State</th>    
         </tr>
-      <% end %>
-    </table>
-  <% else %>
-    <p>There are no registered Suppliers</p>
-  <% end %>
-  
+        <% @suppliers.each do |supplier| %>
+          <tr>
+            <td><%= link_to supplier.corporate_name, supplier %></td>
+            <td><%=supplier.brand_name %></td>
+            <td><%=supplier.state %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <p>There are no registered Suppliers</p>
+    <% end %>
+  </div>
+  <div>
+    <%= button_to "Back", root_path, method: :get %>
+  </div>
+
 </div>
 

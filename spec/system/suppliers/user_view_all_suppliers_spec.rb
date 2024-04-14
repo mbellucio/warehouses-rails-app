@@ -41,4 +41,13 @@ describe "User access suppliers page" do
     expect(page).to have_content("SPFC")
     expect(page).to have_content("SP")
   end
+
+  it "and returns to home page" do
+    #arrange
+    #act
+    visit suppliers_path
+    click_on "Back"
+    #assert
+    expect(current_path).to eq(root_path)
+  end
 end
