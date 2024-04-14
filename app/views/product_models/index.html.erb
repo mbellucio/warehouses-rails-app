@@ -1,0 +1,14 @@
+<section id="product-models">
+  <h1>Product models</h1>
+  <% if @product_models.any? %>
+    <% @product_models.each do |pm| %>
+    <div class="product-card">
+      <h2><%= pm.name %></h2>
+      <h3><%= pm.supplier.brand_name %></h3>
+      <p><%= pm.sku %></p>
+    </div>
+    <% end %>
+  <% else %>
+    <p>There are no registered Product Models.</p>
+  <% end %>
+</section>

@@ -19,9 +19,15 @@ table {
 }
 
 th {
-  padding: 10px 10px;
+  padding: 10px 20px;
 }
 
 .nav-item {
   padding: 0px 10px;
+}
+
+.product-card {
+  background-color: rgb(140, 202, 226);
+  padding: 10px;
+  box-shadow: 3px 3px grey;
 }
