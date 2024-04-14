@@ -21,3 +21,7 @@ table {
 th {
   padding: 10px 10px;
 }
+
+.nav-item {
+  padding: 0px 10px;
+}

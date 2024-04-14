@@ -11,6 +11,7 @@
     <p>Email: <%= @supplier.email %></p>
   </div>
   <div>
+    <%= button_to "Edit", edit_supplier_path, method: :get %>
     <%= button_to "Back", suppliers_path, method: :get %>
   </div>
 </div>

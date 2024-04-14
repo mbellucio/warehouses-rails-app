@@ -10,13 +10,13 @@ describe "User register a supplier" do
     #assert
     expect(current_path).to eq(new_supplier_path)
 
-    expect(page).to have_content("Corporate name")
-    expect(page).to have_content("Brand name")
-    expect(page).to have_content("Registration number")
-    expect(page).to have_content("Adress")
-    expect(page).to have_content("City")
-    expect(page).to have_content("State")
-    expect(page).to have_content("Email")
+    expect(page).to have_field("Corporate name")
+    expect(page).to have_field("Brand name")
+    expect(page).to have_field("Registration number")
+    expect(page).to have_field("Adress")
+    expect(page).to have_field("City")
+    expect(page).to have_field("State")
+    expect(page).to have_field("Email")
   end
 
   it "sucessfully" do
