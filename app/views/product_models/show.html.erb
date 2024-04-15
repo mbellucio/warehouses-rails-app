@@ -1,0 +1,16 @@
+<div>
+  <div>
+    <h1><%= @product_model.name %></h1>
+  </div>
+  <div>
+    <p>Supplier: <%= @product_model.supplier.brand_name%></p>
+    <p>Sku: <%= @product_model.sku %></p>
+    <p>Dimensions: <%= 
+    "#{@product_model.width}cm x
+    #{@product_model.height}cm x
+    #{@product_model.depth}cm" 
+    %></p>
+    <p>Weight: <%= @product_model.weight %>g</p>
+  </div>
+</div>
+

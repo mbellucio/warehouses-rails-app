@@ -1,5 +1,6 @@
 <section id="product-models">
   <h1>Product models</h1>
+  <%= link_to "Register Product model", new_product_model_path, class: "nav-item" %>
   <% if @product_models.any? %>
     <% @product_models.each do |pm| %>
     <div class="product-card">
