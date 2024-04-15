@@ -18,12 +18,23 @@
         <%= link_to 'Suppliers', suppliers_path, class: "nav-item" %>
         <%= link_to 'Warehouses', root_path, class: "nav-item" %>
         <%= link_to 'Product models', product_models_path, class: "nav-item" %>
+        
+        <% if user_signed_in? %> 
+          <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+          <%= "Signed in as: #{current_user.email}" %>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path %>
+        <% end %>
+        
       </nav>
     </header>
     <hr>
-    <div class="center"><%= notice %></div>
+    <p class="center"><%= notice %></p>
+    <p class="center"><%= alert %></p>
     <main id="main">
-      <%= yield %>
+      <div>
+        <%= yield %>
+      </div>
     </main>
   </body>
 </html>
