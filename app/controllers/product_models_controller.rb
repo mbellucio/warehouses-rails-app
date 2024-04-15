@@ -13,6 +13,9 @@ class ProductModelsController < ApplicationController
       if @product_model.save
         return redirect_to @product_model, notice: "Product model successfully registered!"
       end
+      flash.now[:notice] = "Unable to register product model"
+      @suppliers = Supplier.all #very important!!!
+      render "new"
     end
 
     def show
