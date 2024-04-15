@@ -3,6 +3,8 @@ require "rails_helper"
 describe "User register a product model" do
   it "with success" do
     #arrange
+    user = User.create!(email: "admin@gmail.com", password: "flamengo2019")
+
     supplier = Supplier.create!(corporate_name: "IBM", brand_name: "Lenovo",
     registration_number: "112345", adress: "Pen street 40", city: "San Jose",
     state: "CA", email: "lenovo@ibm.com")
@@ -11,6 +13,7 @@ describe "User register a product model" do
     registration_number: "5567845", adress: "Pen street 20", city: "San Jose",
     state: "CA", email: "samsumg@ibm.com")
     #act
+    login_as(user, :scope => :user)
     visit root_path
     click_on "Product models"
     click_on "Register Product model"
@@ -34,11 +37,14 @@ describe "User register a product model" do
 
   it "and must fill all fields" do
     #arrange
+    user = User.create!(email: "admin@gmail.com", password: "flamengo2019")
+
     supplier = Supplier.create!(corporate_name: "IBM", brand_name: "Lenovo",
     registration_number: "112345", adress: "Pen street 40", city: "San Jose",
     state: "CA", email: "lenovo@ibm.com")
 
     #act
+    login_as(user, :scope => :user)
     visit root_path
     click_on "Product models"
     click_on "Register Product model"
