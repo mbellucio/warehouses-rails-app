@@ -18,7 +18,7 @@
         <%= link_to 'Suppliers', suppliers_path, class: "nav-item" %>
         <%= link_to 'Warehouses', root_path, class: "nav-item" %>
         <%= link_to 'Product models', product_models_path, class: "nav-item" %>
-        
+        <%= link_to 'Issue order', new_order_path, class: "nav-item" %>
         <% if user_signed_in? %> 
           <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
           <%= "Signed in as: #{current_user.email}" %>

@@ -1,0 +1,19 @@
+<div>
+  <h1>Issue order</h1>
+  <%= form_with model: @order do |f| %>
+    <div>
+      <%= f.label :warehouse_id, "Destination warehouse" %>
+      <%= f.collection_select :warehouse_id, @warehouses, :id, :name %>
+    </div>
+    <div>
+      <%= f.label :supplier_id %>
+      <%= f.collection_select :supplier_id, @suppliers, :id, :corporate_name %>
+    </div>
+    <div>
+      <%= f.label :arrival_date %>
+      <%= f.text_field :arrival_date %>
+    </div>
+    <%= f.submit "Order" %>
+  <% end %>
+</div>
+

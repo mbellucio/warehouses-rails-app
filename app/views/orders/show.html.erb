@@ -1,0 +1,8 @@
+<div>
+  <div>
+    <h4>Issued by: <%= "#{@order.user.name} <#{@order.user.email}>" %></h4>
+    <p>Destination warehouse: <%= @order.warehouse.name %></p>
+    <p>Supplier: <%= @order.supplier.corporate_name %></p>
+    <p>Predicted arrival date: <%= @order.arrival_date %></p>
+  </div>
+</div>
