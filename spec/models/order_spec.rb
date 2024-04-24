@@ -27,6 +27,45 @@ RSpec.describe Order, type: :model do
       #assert
       expect(result).to be_truthy
     end
+
+    it "estimated time of arrival must be mandatory" do
+      #arrange
+      order = Order.new(arrival_date: "")
+      #act
+      order.valid?
+      #assert
+      expect(order.errors.include? :arrival_date).to be_truthy
+    end
+
+    it "estimated time of arrival must be in the future" do
+      #arrange
+      order = Order.new(arrival_date: 1.day.ago)
+      #act
+      order.valid?
+      #assert
+      expect(order.errors.include? :arrival_date).to be_truthy
+      expect(order.errors[:arrival_date]).to include(" deve ser futura.")
+    end
+
+    it "estimated time of arrival cannot be today" do
+      #arrange
+      order = Order.new(arrival_date: Date.today)
+      #act
+      order.valid?
+      #assert
+      expect(order.errors.include? :arrival_date).to be_truthy
+      expect(order.errors[:arrival_date]).to include(" deve ser futura.")
+    end
+
+    it "estimated time of arrival must be greater or equal to tomorrow" do
+      #arrange
+      order = Order.new(arrival_date: 1.day.from_now)
+      #act
+      order.valid?
+      #assert
+      expect(order.errors.include? :arrival_date).to be_falsy
+      expect(order.errors[:arrival_date]).not_to include(" deve ser futura.")
+    end
   end
 
   describe "Generate random code" do
