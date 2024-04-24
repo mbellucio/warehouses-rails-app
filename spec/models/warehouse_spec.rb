@@ -98,4 +98,15 @@ RSpec.describe Warehouse, type: :model do
       end
     end
   end
+
+  describe "#full_description" do
+    it "Displays name and code" do
+      #arrange
+      w = Warehouse.new(name: "New York", code: "NYC")
+      #act
+      result = w.full_description
+      #assert
+      expect(result).to eq("NYC | New York")
+    end
+  end
 end

@@ -12,7 +12,9 @@
   <body>
     <header>
       <div class="center">
-        <h1>Warehouses & Inventory</h1>
+        <%= link_to root_path do %>
+          <h1>Warehouses & Inventory</h1>
+        <% end %>
       </div>
       <nav class="center">
         <%= link_to 'Suppliers', suppliers_path, class: "nav-item" %>
@@ -21,7 +23,7 @@
         <%= link_to 'Issue order', new_order_path, class: "nav-item" %>
         <% if user_signed_in? %> 
           <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
-          <%= "Signed in as: #{current_user.email}" %>
+          <%= "Signed in as: #{current_user.description}" %>
         <% else %>
           <%= link_to 'Login', new_user_session_path %>
         <% end %>

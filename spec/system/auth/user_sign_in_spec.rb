@@ -16,7 +16,7 @@ describe "User authenticates" do
     within("nav") do
       expect(page).to have_button "Logout"
       expect(page).not_to have_link "Login"
-      expect(page).to have_content "admin@gmail.com"
+      expect(page).to have_content "<admin@gmail.com>"
     end
     expect(page).to have_content "Signed in successfully."
   end

@@ -9,6 +9,7 @@ describe "User access home page and" do
 
     #assert
     expect(page).to have_content("Warehouses & Inventory")
+    expect(page).to have_link("Warehouses & Inventory", href: root_path)
   end
 
   it "sees all registered warehouses" do

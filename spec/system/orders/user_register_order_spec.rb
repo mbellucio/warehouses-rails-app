@@ -29,18 +29,21 @@ describe "User issues an order" do
     registration_number: "223456", adress: "Morumbi 10",
     city: "São Paulo", state: "SP", email: "saopaulo@gmail.com")
 
+    allow(SecureRandom).to receive(:alphanumeric).with(10).and_return("ABCDE12345")
+
     #act
     login_as(user)
     visit root_path
     click_on "Issue order"
-    select "Rio", from: "Destination warehouse"
+    select "SDU | Rio", from: "Destination warehouse"
     select "Flamengo", from: "Supplier"
     fill_in "Arrival date",	with: "07-12-2024"
     click_on "Order"
     #assert
     expect(page).to have_content "Order was successfully issued"
+    expect(page).to have_content "Order ABCDE12345"
     expect(page).to have_content "Issued by: Ademiro <admin@gmail.com>"
-    expect(page).to have_content "Destination warehouse: Rio"
+    expect(page).to have_content "Destination warehouse: SDU | Rio"
     expect(page).to have_content "Supplier: Flamengo"
     expect(page).to have_content "Predicted arrival date: 2024-12-07"
     expect(current_path).to eq(order_path(Order.last.id))
