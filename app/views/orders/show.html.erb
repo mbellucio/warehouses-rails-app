@@ -6,10 +6,12 @@
   
   <div>
     <h2>Order items</h2>
+    <%= link_to 'Add item', new_order_order_item_path(@order.id) %>
     <% @order.order_items.each do |order_item| %>
       <%= "#{order_item.quantity} x #{order_item.product_model.name}" %>
     <% end %>
   </div>
+
 
   <% if @order.pending? %>
     <%= button_to 'Set as delivered', delivered_order_path(@order.id) %>
