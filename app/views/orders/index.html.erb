@@ -1,0 +1,15 @@
+<div>
+  
+  <% if @orders.empty? %>
+    <p>There are no orders issued yet.</p>
+  <% else %>
+    <% @orders.each do |order| %>
+      <div id=<%= order.code%>>
+        <%= render order %>
+        <%= link_to 'View details', order_path(order.id) %>
+        <hr>
+      </div>
+    <% end %>
+  <% end %>
+  
+</div>

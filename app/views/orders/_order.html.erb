@@ -1,0 +1,8 @@
+<div>
+  <h2>Order <%= order.code %></h2>
+  <h4>Issued by: <%= order.user.description %></h4>
+  <p>Destination warehouse: <%= order.warehouse.full_description %></p>
+  <p>Supplier: <%= order.supplier.corporate_name %></p>
+  <p>Predicted arrival date: <%= order.arrival_date %></p>
+  <p>Order status: <%= order.status %></p>
+</div>

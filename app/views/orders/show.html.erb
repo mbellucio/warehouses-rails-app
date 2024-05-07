@@ -1,9 +1,19 @@
 <div>
+  <h1>Order Details</h1>
+  <hr>
+  <%= render @order %>
+  <%= link_to 'Edit', edit_order_path(@order.id) %>
+  
   <div>
-    <h2>Order <%= @order.code %></h2>
-    <h4>Issued by: <%= @order.user.description %></h4>
-    <p>Destination warehouse: <%= @order.warehouse.full_description %></p>
-    <p>Supplier: <%= @order.supplier.corporate_name %></p>
-    <p>Predicted arrival date: <%= @order.arrival_date %></p>
+    <h2>Order items</h2>
+    <% @order.order_items.each do |order_item| %>
+      <%= "#{order_item.quantity} x #{order_item.product_model.name}" %>
+    <% end %>
   </div>
+
+  <% if @order.pending? %>
+    <%= button_to 'Set as delivered', delivered_order_path(@order.id) %>
+    <%= button_to 'Set as canceled', canceled_order_path(@order.id) %>
+  <% end %>
+  
 </div>

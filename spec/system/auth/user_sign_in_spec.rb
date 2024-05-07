@@ -7,7 +7,7 @@ describe "User authenticates" do
     #act
     visit root_path
     click_on "Login"
-    within("form") do
+    within("main#main form") do
       fill_in "Email", with: "admin@gmail.com"
       fill_in "Password",	with: "flamengo2019"
       click_on "Login"
@@ -27,7 +27,7 @@ describe "User authenticates" do
     #act
     visit root_path
     click_on "Login"
-    within("form") do
+    within("main#main form") do
       fill_in "Email", with: "admin@gmail.com"
       fill_in "Password",	with: "flamengo2019"
       click_on "Login"

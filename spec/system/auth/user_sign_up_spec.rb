@@ -7,7 +7,7 @@ describe "User signs up and authenticates" do
     visit root_path
     click_on "Login"
     click_on "Sign up"
-    within("form") do
+    within("main#main form") do
       fill_in "Name", with: "Ademiro"
       fill_in "Email", with: "admin@gmail.com"
       fill_in "Password", with: "flamengo2019"

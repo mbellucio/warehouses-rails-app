@@ -13,7 +13,12 @@
       <%= f.label :arrival_date %>
       <%= f.date_field :arrival_date %>
     </div>
-    <%= f.submit "Order" %>
+    
+    <% if controller.action_name == "edit" %>
+      <%= f.submit "Update" %>
+    <% else %>
+      <%= f.submit "Order" %>
+    <% end %>
   <% end %>
 </div>
 

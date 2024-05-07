@@ -1,0 +1,17 @@
+<div>
+  <h2>Search results for: <%= @code %></h2>
+
+  <% if @orders.empty? %>
+    <p>No orders were found.</p>
+  <% else %>
+    <p><%= @orders.length == 1 ? "1 order was found:" : "#{@orders.length} orders were found." %></p>
+    <% @orders.each do |order| %>
+      <p><strong>Code: </strong><%= order.code %></p>
+      <p><strong>Destination warehouse: </strong><%= order.warehouse.name %></p>
+      <p><strong>Supplier: </strong><%= order.supplier.corporate_name %></p>
+      <p><strong>Estimated arrival date: </strong><%= order.arrival_date %></p>
+    <% end %>
+  <% end %>
+
+</div>
+

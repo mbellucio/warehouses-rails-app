@@ -46,6 +46,7 @@ describe "User issues an order" do
     expect(page).to have_content "Destination warehouse: SDU | Rio"
     expect(page).to have_content "Supplier: Flamengo"
     expect(page).to have_content "Predicted arrival date: 2024-12-07"
+    expect(page).to have_content "Order status: pending"
     expect(current_path).to eq(order_path(Order.last.id))
   end
 end

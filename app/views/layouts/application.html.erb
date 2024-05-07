@@ -21,13 +21,22 @@
         <%= link_to 'Warehouses', root_path, class: "nav-item" %>
         <%= link_to 'Product models', product_models_path, class: "nav-item" %>
         <%= link_to 'Issue order', new_order_path, class: "nav-item" %>
+
         <% if user_signed_in? %> 
-          <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+          <%= link_to 'My orders', orders_path %>
+          <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: "nav-item" %>
           <%= "Signed in as: #{current_user.description}" %>
-        <% else %>
-          <%= link_to 'Login', new_user_session_path %>
+          <%= form_with url: search_orders_path, method: :get do |f| %>
+          <div>
+            <%= f.label :query, "Search order" %>
+            <%= f.text_field :query %>
+          </div>
+          <%= f.submit "Search" %>
         <% end %>
-        
+        <% else %>
+          <%= link_to 'Login', new_user_session_path, class: "nav-item" %>
+        <% end %>
+
       </nav>
     </header>
     <hr>
