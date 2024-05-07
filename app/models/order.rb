@@ -9,7 +9,7 @@ class Order < ApplicationRecord
   validates :code, :arrival_date, presence: true
   validate :arrival_date_is_future
 
-  before_validation :generate_code
+  before_validation :generate_code, on: :create
 
   private
   def generate_code

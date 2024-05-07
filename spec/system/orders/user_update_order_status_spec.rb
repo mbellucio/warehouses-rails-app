@@ -14,8 +14,13 @@ describe 'User updates the order status' do
     registration_number: "112345", adress: "Gávea 40", city: "Rio de Janeiro",
     state: "RJ", email: "flamengo@gmail.com")
 
+    product = ProductModel.create!(name: "Lenovo Notebook", weight: 2000, width: 65, height:35,
+    depth: 6, sku: "#ssdhtjlk1213457", supplier: supplier)
+
     order = Order.create!(warehouse: warehouse, supplier: supplier,
     user: user, arrival_date: 1.day.from_now, status: :pending)
+
+    OrderItem.create!(order_id: order.id, product_model_id: product.id, quantity: 5)
     #act
     login_as(user)
     visit root_path
@@ -29,6 +34,8 @@ describe 'User updates the order status' do
     expect(page).to have_content "Order status: delivered"
     expect(page).not_to have_button "Set as canceled"
     expect(page).not_to have_button "Set as delivered"
+    expect(StockProduct.count).to eq 5
+    expect(StockProduct.where(product_model_id: product.id, warehouse_id: warehouse.id).count).to eq 5
   end
 
   it 'sets as canceled' do
@@ -44,8 +51,13 @@ describe 'User updates the order status' do
     registration_number: "112345", adress: "Gávea 40", city: "Rio de Janeiro",
     state: "RJ", email: "flamengo@gmail.com")
 
+    product = ProductModel.create!(name: "Lenovo Notebook", weight: 2000, width: 65, height:35,
+    depth: 6, sku: "#ssdhtjlk1213457", supplier: supplier)
+
     order = Order.create!(warehouse: warehouse, supplier: supplier,
     user: user, arrival_date: 1.day.from_now, status: :pending)
+
+    OrderItem.create!(order_id: order.id, product_model_id: product.id, quantity: 5)
     #act
     login_as(user)
     visit root_path
@@ -57,5 +69,6 @@ describe 'User updates the order status' do
     #assert
     expect(current_path).to eq order_path(order.id)
     expect(page).to have_content "Order status: canceled"
+    expect(StockProduct.count).to eq 0
   end
 end

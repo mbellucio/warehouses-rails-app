@@ -7,9 +7,11 @@
   <div>
     <h2>Order items</h2>
     <%= link_to 'Add item', new_order_order_item_path(@order.id) %>
-    <% @order.order_items.each do |order_item| %>
-      <%= "#{order_item.quantity} x #{order_item.product_model.name}" %>
-    <% end %>
+    <div>
+      <% @order.order_items.each do |order_item| %>
+        <p><%= "#{order_item.quantity} x #{order_item.product_model.name}" %></p>
+      <% end %>
+    </div>
   </div>
 
 
