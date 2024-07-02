@@ -1,7 +1,9 @@
 class WarehousesController < ApplicationController
   before_action :get_warehouse_by_id, only: [:edit, :update, :show, :destroy]
 
-  def show; end
+  def show
+    @stocks = @warehouse.stock_products.group(:product_model).count
+  end
 
   def new
     @warehouse = Warehouse.new

@@ -10,4 +10,11 @@ Rails.application.routes.draw do
     post "canceled", on: :member
     resources :order_items, only: [:new, :create]
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :warehouses, only: [:show, :index, :create]
+    end
+  end
+
 end

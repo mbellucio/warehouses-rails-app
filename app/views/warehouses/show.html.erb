@@ -8,6 +8,13 @@
     <p>Adress: <%= @warehouse.adress %> zip: <%= @warehouse.zip %></p>
   <div>
 
+  <div>
+    <h2>Stock items</h2>
+    <% @stocks.each_pair do |sp, qt| %>
+      <p><%= "#{qt} x #{sp.sku}" %></p>
+    <% end %>
+  </div>
+
   <%= link_to 'Edit', edit_warehouse_path(@warehouse.id) %>
   <%= button_to 'Delete', warehouse_path(@warehouse.id), method: :delete%>
   <%= link_to 'Back', root_path %>
