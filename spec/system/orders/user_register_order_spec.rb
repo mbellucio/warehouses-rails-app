@@ -50,3 +50,4 @@ describe "User issues an order" do
     expect(current_path).to eq(order_path(Order.last.id))
   end
 end
+

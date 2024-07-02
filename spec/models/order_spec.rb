@@ -116,7 +116,7 @@ RSpec.describe Order, type: :model do
       order_a = Order.new(warehouse: warehouse, supplier: supplier,
       user: user, arrival_date: "2024-07-12")
       order_b = Order.new(warehouse: warehouse, supplier: supplier,
-      user: user, arrival_date: "2024-05-26")
+      user: user, arrival_date: "2024-07-26")
       #act
       order_a.save!
       order_b.save!
