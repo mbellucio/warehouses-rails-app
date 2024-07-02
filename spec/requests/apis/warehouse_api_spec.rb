@@ -134,7 +134,20 @@ describe 'Warehouse API' do
     end
 
     it "fails if internal errror" do
+      allow(Warehouse).to receive(:new).and_raise(ActiveRecord::ActiveRecordError)
+      warehouse_params = { warehouse: {
+        name: "São Paulo",
+        code: "GRU",
+        city: "Guarulhos",
+        area: 100_000,
+        adress: "Avenida do Aeroporto, 1000",
+        zip: "15000-000",
+        description: "Warehouse for international cargo usage"
+      }}
 
+      post "/api/v1/warehouses", params: warehouse_params
+
+      expect(response).to have_http_status(500)
     end
   end
 end
